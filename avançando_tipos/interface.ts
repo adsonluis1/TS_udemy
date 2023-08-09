@@ -11,3 +11,4 @@ function showtypes(tipos:types):allTypes{
 }
 
 console.log(showtypes({boolean:true + ' ou false' , string:'string' , number:3 + ' ou `3` '}))
+
