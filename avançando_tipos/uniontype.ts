@@ -9,3 +9,17 @@ function retornarSaldo(saldo:string | number){
 console.log(retornarSaldo(5000))
 console.log(retornarSaldo('5000'))
 
+// avançando em uniontype
+
+function statuslog(status:string | boolean):string | void{
+    if(typeof status == 'boolean'){
+        return `Desculpa mas não foi possivel entrar`
+    }
+
+    return `Ola, seja bem vindo(a) novamente`
+}
+
+console.log(statuslog(false))
+console.log(statuslog(`aceito`))
+
+
