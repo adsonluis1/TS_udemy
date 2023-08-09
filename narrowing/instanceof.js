@@ -38,3 +38,34 @@ function check(pessoa) {
 }
 check(adson);
 check(anne);
+// extra
+var Carro = /** @class */ (function () {
+    function Carro(marca, nome, vellMax, portas) {
+        this.marca = marca;
+        this.nome = nome;
+        this.vellMax = vellMax;
+        this.portas = portas;
+    }
+    return Carro;
+}());
+var superCarro = /** @class */ (function (_super) {
+    __extends(superCarro, _super);
+    function superCarro(marca, nome, vellMax, portas, motor) {
+        var _this = _super.call(this, marca, nome, vellMax, portas) || this;
+        _this.motor = motor;
+        return _this;
+    }
+    return superCarro;
+}(Carro));
+var gol = new Carro('wv', 'gol', 190, 4);
+var aventador = new superCarro('lamborguini', 'aventador', 370, 2, 'v12');
+function info(tipo) {
+    if (tipo instanceof Carro) {
+        console.log("carro fraco, marca:".concat(tipo.marca, ", nome:").concat(tipo.nome, ", vellMax: ").concat(tipo.vellMax, ", portas: ").concat(tipo.portas));
+    }
+    if (tipo instanceof superCarro) {
+        console.log("carro forte, marca:".concat(tipo.marca, ", nome:").concat(tipo.nome, ", vellMax: ").concat(tipo.vellMax, ", portas: ").concat(tipo.portas, ", motor: ").concat(tipo.motor));
+    }
+}
+info(gol);
+info(aventador);
