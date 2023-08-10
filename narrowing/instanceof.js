@@ -60,12 +60,12 @@ var superCarro = /** @class */ (function (_super) {
 var gol = new Carro('wv', 'gol', 190, 4);
 var aventador = new superCarro('lamborguini', 'aventador', 370, 2, 'v12');
 function info(tipo) {
-    if (tipo instanceof Carro) {
-        console.log("carro fraco, marca:".concat(tipo.marca, ", nome:").concat(tipo.nome, ", vellMax: ").concat(tipo.vellMax, ", portas: ").concat(tipo.portas));
-    }
     if (tipo instanceof superCarro) {
         console.log("carro forte, marca:".concat(tipo.marca, ", nome:").concat(tipo.nome, ", vellMax: ").concat(tipo.vellMax, ", portas: ").concat(tipo.portas, ", motor: ").concat(tipo.motor));
     }
+    else if (tipo instanceof Carro) {
+        console.log("carro fraco, marca:".concat(tipo.marca, ", nome:").concat(tipo.nome, ", vellMax: ").concat(tipo.vellMax, ", portas: ").concat(tipo.portas));
+    }
 }
-info(gol);
 info(aventador);
+info(gol);
