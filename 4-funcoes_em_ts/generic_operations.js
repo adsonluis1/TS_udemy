@@ -19,3 +19,7 @@ function maiorOUmenor(num1, num2) {
     console.log("o numero maior \u00E9 o ".concat(numMaior));
 }
 maiorOUmenor('60', '10');
+function juncao(arr1, arr2) {
+    return arr1.concat(arr2);
+}
+console.log(juncao([1, 2, 3], ['adson', 'anne']));

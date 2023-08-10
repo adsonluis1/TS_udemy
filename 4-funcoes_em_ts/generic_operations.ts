@@ -24,3 +24,9 @@ function maiorOUmenor<T extends string | number>(num1:T , num2:T){
 }
 
 maiorOUmenor('60', '10')
+
+function juncao<T>(arr1:T[] , arr2:T[]){
+    return arr1.concat(arr2)
+}
+
+console.log(juncao<string | number>([1,2,3],['adson','anne']))
