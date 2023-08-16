@@ -71,3 +71,24 @@ class multioplosDecora{
 const newmulti = new multioplosDecora()
 
 newmulti.start()
+
+
+// class decorator
+
+function destructor(constructor:Function){
+    console.log(constructor)
+    if(constructor.name === 'user'){
+        console.log('criando usuario')
+    }
+}
+
+@destructor
+class user{
+    nome
+    constructor(nome:string){
+        this.nome= nome
+    }
+}
+
+const adson = new user('adson')
+console.log(adson)
