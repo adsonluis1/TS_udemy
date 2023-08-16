@@ -25,3 +25,33 @@ __decorate([
 ], myclass.prototype, "testing", null);
 const myobj = new myclass();
 myobj.testing();
+// multiplos decorators
+function a() {
+    console.log('iniciou a');
+    return function (target, properKey, descriptor) {
+        console.log('realizando');
+        console.log(target);
+        console.log(properKey);
+        console.log(descriptor);
+    };
+}
+function b() {
+    console.log('iniciou b');
+    return function (target, properKey, descriptor) {
+        console.log('terminando b');
+        console.log(target);
+        console.log(properKey);
+        console.log(descriptor);
+    };
+}
+class multioplosDecora {
+    start() {
+        console.log('acabo');
+    }
+}
+__decorate([
+    a(),
+    b()
+], multioplosDecora.prototype, "start", null);
+const newmulti = new multioplosDecora();
+newmulti.start();
