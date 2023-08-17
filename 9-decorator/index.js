@@ -72,3 +72,52 @@ user = __decorate([
 ], user);
 const adson = new user('adson');
 console.log(adson);
+// exemplo class decorator
+function createDate(criar) {
+    criar.prototype.createAt = new Date();
+}
+let pen = class pen {
+    constructor(id) {
+        this.id = id;
+    }
+};
+pen = __decorate([
+    createDate
+], pen);
+let book = class book {
+    constructor(id) {
+        this.id = id;
+    }
+};
+book = __decorate([
+    createDate
+], book);
+const np = new pen('1');
+const nb = new book('2');
+console.log(nb);
+console.log(np);
+// exemplo
+function newid() {
+    return function (target, propertyKey) {
+        let valor;
+        const getter = function () {
+            return valor;
+        };
+        const setter = function (newval) {
+            valor = newval.padStart(5, '0');
+        };
+        Object.defineProperty(target, propertyKey, {
+            set: setter,
+            get: getter
+        });
+    };
+}
+class id {
+    constructor(id) {
+        this.id = id;
+    }
+}
+__decorate([
+    newid()
+], id.prototype, "id", void 0);
+console.log(new id('66'));

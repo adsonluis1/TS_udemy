@@ -92,3 +92,62 @@ class user{
 
 const adson = new user('adson')
 console.log(adson)
+
+// exemplo class decorator
+function createDate(criar:Function){
+    criar.prototype.createAt = new Date()
+}
+
+@createDate
+class pen{
+    id
+    constructor(id:string){
+        this.id= id
+    }
+}
+
+@createDate
+class book{
+    id
+    constructor(id:string){
+        this.id= id
+    }
+}
+
+const np = new pen('1')
+const nb = new book('2')
+
+console.log(nb)
+console.log(np)
+
+// exemplo
+
+function newid(){
+    return function(target:object, propertyKey:string){
+
+        let valor:string
+        
+        const getter = function(){
+            return valor
+        }
+
+        const setter = function(newval:string){
+            valor = newval.padStart(5,'0')
+        }
+
+        Object.defineProperty(target, propertyKey ,{
+            set: setter,
+            get:getter
+        })
+    }
+}
+
+class id{
+    @newid()
+    id
+    constructor(id:string){
+        this.id = id
+    }
+}
+
+console.log(new id('66'))
