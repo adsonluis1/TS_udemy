@@ -66,3 +66,73 @@ testeclass = __decorate([
     decorationclass
 ], testeclass);
 console.log(new testeclass('adson'));
+// class decorator 
+function setdata(criar) {
+    criar.prototype.data = new Date();
+}
+let carro = class carro {
+    constructor(nome, motor) {
+        this.nome = nome;
+        this.motor = motor;
+    }
+};
+carro = __decorate([
+    setdata
+], carro);
+console.log(new carro('civic', '2.0'));
+// exemplo property class
+function newid() {
+    return function (target, propertyKey) {
+        let valor;
+        const getter = function () {
+            return valor;
+        };
+        const setter = function (newvalor) {
+            valor = newvalor.padStart(5, '0');
+        };
+        Object.defineProperty(target, propertyKey, {
+            set: setter,
+            get: getter
+        });
+    };
+}
+function setMetros() {
+    return function (target, propertyKey) {
+        let valor;
+        const getter = function () {
+            return valor;
+        };
+        const setter = function (newmetros) {
+            valor = newmetros + 'metros';
+        };
+        Object.defineProperty(target, propertyKey, {
+            set: setter,
+            get: getter
+        });
+    };
+}
+function newdata(criar) {
+    criar.prototype.DataCriada = new Date();
+}
+let porta = class porta {
+    constructor(id, price = 1000, tam) {
+        this.id = id;
+        this.price = price;
+        this.tam = tam;
+    }
+};
+__decorate([
+    newid()
+], porta.prototype, "id", void 0);
+__decorate([
+    setMetros()
+], porta.prototype, "tam", void 0);
+porta = __decorate([
+    newdata
+], porta);
+const portanova = new porta('555', 1500, 2.5);
+console.log(portanova);
+console.log(portanova.DataCriada);
+console.log(portanova.price);
+console.log(portanova.tam);
+console.log(portanova.id);
