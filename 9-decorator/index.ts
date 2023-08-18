@@ -151,3 +151,40 @@ class id{
 }
 
 console.log(new id('66'))
+
+// exemplo method decorator
+
+function verficaçãopost(){
+    return function(target:object,
+        key:string | Symbol,
+        descriptor:PropertyDescriptor)
+        {
+            
+            const childFunction = descriptor.value
+            descriptor.value= function(...args:any[]){
+                if(args[1] === true){
+                    console.log('o usuario ja postou, infelismente não pode postar dnv')
+                    return null
+                }else{
+                    return childFunction.apply(this,args)
+                }
+            }
+
+            return descriptor
+        }
+}
+
+class Post {
+    japostou= false
+    @verficaçãopost()
+    post(content:string, japostou:boolean){
+        this.japostou = true
+        console.log(`o usuario:${content} fez um post`)
+    }
+}
+
+const newPost = new Post()
+
+newPost.post('adson' , newPost.japostou)
+newPost.post('hehe' , newPost.japostou)
+newPost.post('haha' , newPost.japostou)

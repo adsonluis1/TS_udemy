@@ -121,3 +121,35 @@ __decorate([
     newid()
 ], id.prototype, "id", void 0);
 console.log(new id('66'));
+// exemplo method decorator
+function verficaçãopost() {
+    return function (target, key, descriptor) {
+        const childFunction = descriptor.value;
+        descriptor.value = function (...args) {
+            if (args[1] === true) {
+                console.log('o usuario ja postou, infelismente não pode postar dnv');
+                return null;
+            }
+            else {
+                return childFunction.apply(this, args);
+            }
+        };
+        return descriptor;
+    };
+}
+class Post {
+    constructor() {
+        this.japostou = false;
+    }
+    post(content, japostou) {
+        this.japostou = true;
+        console.log(`o usuario:${content} fez um post`);
+    }
+}
+__decorate([
+    verficaçãopost()
+], Post.prototype, "post", null);
+const newPost = new Post();
+newPost.post('adson', newPost.japostou);
+newPost.post('hehe', newPost.japostou);
+newPost.post('haha', newPost.japostou);
