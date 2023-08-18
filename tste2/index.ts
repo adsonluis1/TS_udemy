@@ -69,14 +69,17 @@ function cheeckvacina(){
         return descriptor
     }
 }
+
+@newdata
 class vacina{
     vacina=false  
+    Data?:Date
     @cheeckvacina()
     carta(nome:string,vacinou:boolean){
-        console.log(`o(a) cidadão ${nome} foi vacinado(a)`)
+        console.log(`o(a) cidadão ${nome} foi vacinado(a) na data: ${this.Data}`)
         this.vacina= vacinou
     }
 }
 
 const vacinação = new vacina()
-vacinação.carta('adson' , true)
+vacinação.carta('adson' , false)

@@ -59,17 +59,20 @@ function cheeckvacina() {
         return descriptor;
     };
 }
-class vacina {
+let vacina = class vacina {
     constructor() {
         this.vacina = false;
     }
     carta(nome, vacinou) {
-        console.log(`o(a) cidadão ${nome} foi vacinado(a)`);
+        console.log(`o(a) cidadão ${nome} foi vacinado(a) na data: ${this.Data}`);
         this.vacina = vacinou;
     }
-}
+};
 __decorate([
     cheeckvacina()
 ], vacina.prototype, "carta", null);
+vacina = __decorate([
+    newdata
+], vacina);
 const vacinação = new vacina();
-vacinação.carta('adson', true);
+vacinação.carta('adson', false);
