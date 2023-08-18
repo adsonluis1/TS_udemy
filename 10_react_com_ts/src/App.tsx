@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 // 4- importanto o componets
-import primeirocomponente from './components/primeirocomponente';
+
+import Primeirocomponente from './components/Primeirocomponente';
 
 function App() {
   // 1- variaveis
@@ -24,8 +25,9 @@ function App() {
         {trabalhando && <h2>trabalhando</h2>}
 
         <h3>{showpessoa(nome,idade)}</h3>
+    
+      <Primeirocomponente/>
 
-        {primeirocomponente()}
     </div>
   );
 }

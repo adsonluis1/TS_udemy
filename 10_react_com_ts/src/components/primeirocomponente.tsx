@@ -1,12 +1,13 @@
 import React from 'react'
 
+type Props = {}
 
-function primeirocomponente() {
+function Primeirocomponente({}: Props) {
   return (
-    <div id='teste'>
+    <div>
         <h3>primeiro componente</h3>
     </div>
   )
 }
 
-export default primeirocomponente
+export default Primeirocomponente
