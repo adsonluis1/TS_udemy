@@ -83,3 +83,88 @@ class vacina{
 
 const vacinação = new vacina()
 vacinação.carta('adson' , false)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function checktam(){
+    return function(target:object,propertyKey:string){
+        
+        let valor:string
+
+        const getter = function(){
+            return valor
+        }
+
+        const setter = function(newval:string){
+            if(newval.length > 12){
+                console.log('o maximo de caracteres no user name é 12')
+            }else{
+                valor = newval
+                console.log('user name logado')
+            }
+        }
+
+        Object.defineProperty(target,propertyKey,{
+            set:setter,
+            get:getter
+        })
+    }
+}
+
+class login{
+    @checktam()
+    username
+    senha
+    constructor(username:string,senha:string){
+        this.username= username
+        this.senha= senha
+    }
+
+    show(){
+        if(this.username === undefined){
+            
+        }else{
+            console.log(this)
+        }
+    }
+}
+
+const newlogin = new login('adson12414124314' , '1213131')
+
+newlogin.show()
