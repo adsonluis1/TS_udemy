@@ -7,11 +7,22 @@ import Primeirocomponente from './components/Primeirocomponente';
 import Segundocomponente from './components/Segundocomponente'
 import Desestruturação from './components/Desestrururação';
 import State, {Linguagens} from './components/State';
+import { createContext } from 'react';
 
 
 // 8- type com tsx
 
 type stringOrrNull = string | null
+
+// 9- 
+
+interface IcontextValue{
+  linguagem:string,
+  framework:string,
+  projects:number
+}
+
+export const Appcontext = createContext<IcontextValue | null>(null)
 
 function App() {
   // 1- variaveis
@@ -30,8 +41,15 @@ function App() {
   const string:stringOrrNull = 'adson'
   let hihi:stringOrrNull = null
 
+  // 9- context api
 
+  const contextvalue:IcontextValue ={
+    linguagem:Linguagens.js,
+    framework:'Express',
+    projects:5
+  }
   return (
+    <Appcontext.Provider value={contextvalue}>
     <div className="App">
         <h1>Hello word React!</h1>
         <h2>nome: {nome}</h2>
@@ -68,9 +86,9 @@ function App() {
         {string && <p>Aqui tem uma string</p>}
         {hihi && <p>Aqui tem uma string</p>}
       </div>
-
+      
     </div>
-
+    </Appcontext.Provider>
   );
 }
 
