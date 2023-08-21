@@ -1,5 +1,13 @@
 import React, { useState, ChangeEvent } from 'react'
 
+export enum Linguagens {
+    js= 'Javascript',
+    jv= 'Java',
+    cc= 'Csharp',
+    p='Phytyon',
+    ts='Typescrip',
+}
+
 function State() {
 
     const [text,settext] = useState<string | null>('testando hook')
@@ -7,6 +15,8 @@ function State() {
     const handlecharge = (e:ChangeEvent<HTMLInputElement>) => {
         settext(e.target.value) 
     }
+
+   
 
   return (
     <div>
@@ -18,3 +28,5 @@ function State() {
 }
 
 export default State
+
+

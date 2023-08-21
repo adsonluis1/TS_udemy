@@ -6,7 +6,7 @@ import './App.css';
 import Primeirocomponente from './components/Primeirocomponente';
 import Segundocomponente from './components/Segundocomponente'
 import Desestruturação from './components/Desestrururação';
-import State from './components/State';
+import State, {Linguagens} from './components/State';
 
 function App() {
   // 1- variaveis
@@ -36,6 +36,22 @@ function App() {
       <Desestruturação nome='adson' profissão='Desenvolvedor' contato='(79) 999908598'/>
 
       <State/>
+
+      <div>
+        <h1>Linguagens que eu programo</h1>
+         <ol>
+          <li>{Linguagens.js}</li>
+          <li>{Linguagens.ts}</li>
+         </ol>
+          
+          <h1>Linguagens que eu quero programar</h1>
+          <ol>
+            <li>{Linguagens.cc}</li>
+            <li>{Linguagens.js}</li>
+            <li>{Linguagens.ts}</li>
+          </ol>
+      
+      </div>
 
     </div>
   );
