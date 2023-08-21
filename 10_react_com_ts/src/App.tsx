@@ -6,6 +6,7 @@ import './App.css';
 import Primeirocomponente from './components/Primeirocomponente';
 import Segundocomponente from './components/Segundocomponente'
 import Desestruturação from './components/Desestrururação';
+import State from './components/State';
 
 function App() {
   // 1- variaveis
@@ -33,6 +34,8 @@ function App() {
       <Segundocomponente/>
 
       <Desestruturação nome='adson' profissão='Desenvolvedor' contato='(79) 999908598'/>
+
+      <State/>
 
     </div>
   );
