@@ -8,6 +8,11 @@ import Segundocomponente from './components/Segundocomponente'
 import Desestruturação from './components/Desestrururação';
 import State, {Linguagens} from './components/State';
 
+
+// 8- type com tsx
+
+type stringOrrNull = string | null
+
 function App() {
   // 1- variaveis
   const nome:string= 'adson'
@@ -19,6 +24,12 @@ function App() {
   const showpessoa = (nome:string, idade:number)=>{
     return `nome: ${nome}, idade: ${idade}`
   }
+
+  // 8-types
+
+  const string:stringOrrNull = 'adson'
+  let hihi:stringOrrNull = null
+
 
   return (
     <div className="App">
@@ -53,7 +64,13 @@ function App() {
       
       </div>
 
+      <div>
+        {string && <p>Aqui tem uma string</p>}
+        {hihi && <p>Aqui tem uma string</p>}
+      </div>
+
     </div>
+
   );
 }
 
