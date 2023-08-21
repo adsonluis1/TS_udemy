@@ -4,6 +4,7 @@ import './App.css';
 // 4- importanto o componets
 
 import Primeirocomponente from './components/Primeirocomponente';
+import Segundocomponente from './components/Segundocomponente'
 
 function App() {
   // 1- variaveis
@@ -27,6 +28,8 @@ function App() {
         <h3>{showpessoa(nome,idade)}</h3>
     
       <Primeirocomponente/>
+
+      <Segundocomponente/>
 
     </div>
   );

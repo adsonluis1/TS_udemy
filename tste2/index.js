@@ -115,3 +115,42 @@ __decorate([
 ], login.prototype, "username", void 0);
 const newlogin = new login('adson12414124314', '1213131');
 newlogin.show();
+function verificaçãoNome() {
+    return function (target, propertyKey) {
+        let valor;
+        const getter = function () {
+            return valor;
+        };
+        const setter = function (newname) {
+            if (newname.length > 4 && newname.length < 16) {
+                valor = newname;
+                return;
+            }
+            console.log('o nome tem que ter entre 4 a 16 caracteres');
+        };
+        Object.defineProperty(target, propertyKey, {
+            set: setter,
+            get: getter
+        });
+    };
+}
+class conta {
+    constructor(login, senha) {
+        this.logado = false;
+        this.login = login;
+        this.senha = senha;
+        this.logado = true;
+        this.id = Math.floor(Math.random() * 100);
+    }
+    showconta() {
+        console.log(`login: ${this.login}`);
+        console.log(`id: ${this.id}`);
+        console.log(`logado: ${this.logado}`);
+    }
+}
+__decorate([
+    verificaçãoNome()
+], conta.prototype, "login", void 0);
+const contanova = new conta('adson', 132132131);
+console.log(contanova);
+contanova.showconta();

@@ -168,3 +168,86 @@ class login{
 const newlogin = new login('adson12414124314' , '1213131')
 
 newlogin.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function verificaçãoNome(){
+    return function(target:object,propertyKey:string){
+
+        let valor:string
+
+        const getter = function(){
+            return valor
+        }   
+
+        const setter = function(newname:string){
+            if(newname.length > 4 && newname.length < 16){ 
+                valor = newname
+                return
+            }
+                console.log('o nome tem que ter entre 4 a 16 caracteres')
+            
+        }
+
+        Object.defineProperty(target,propertyKey,{
+            set:setter,
+            get:getter
+        })
+
+     }
+}
+
+class conta {
+    @verificaçãoNome()
+    login
+    senha
+    logado= false
+    id?:number
+    constructor(login:string,senha:number){
+        this.login= login
+        this.senha=senha
+        this.logado= true
+        this.id = Math.floor(Math.random()*100)
+    }
+
+    showconta(){
+        console.log(`login: ${this.login}`)
+        console.log(`id: ${this.id}`)
+        console.log(`logado: ${this.logado}`)
+    }
+}
+
+const contanova= new conta ('adson' , 132132131)
+
+console.log(contanova)
+
+contanova.showconta()
